@@ -1,0 +1,12 @@
+<tr>
+	<td><%= project.title %></td>
+	<% if project.creator == current_user.id %>			
+			<td><%= link_to 'Edit', edit_project_path(project) ,:class=>'btn btn-info'%></td>
+			<td><%= link_to 'View', project,:class=>'btn btn-info' %></td>
+			<td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, :class=>'btn btn-danger' %></td>
+	<% else %>
+		<td></td>
+		<td><%= link_to 'View', project, :class=>'btn btn-info' %></td>
+		<td></td>
+	<%end%>
+<tr>		

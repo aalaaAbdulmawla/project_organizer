@@ -1,0 +1,99 @@
+<div id="project-body">
+  <fieldset>
+    <legend><strong>Project Details</strong></legend>
+    <p>
+      <strong>Title:</strong>
+      <%= @project.title.split.map(&:capitalize)*' '  %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @project.description.capitalize %>
+    </p>
+
+    <p>
+      <strong>Creator:</strong>
+      <% creator = User.find(@project.creator)%>
+      <%= creator.name.split.map(&:capitalize)*' '  %>
+
+    </p>
+    <div id="members">
+    <legend>Members</legend>
+
+      <% if @project.users %>
+         <% @project.users.each do |user|%>      
+            <p>- <%= user.name.split.map(&:capitalize)*' '  %></p>
+         <% end %>
+      <% end %>
+    </div>
+    <div id="edit-link">
+      <% if current_user.id == @project.creator%> 
+        <%= link_to 'Edit', edit_project_path(@project), :class=>'btn btn-info btn-lg active' %>
+      <%end%>
+    </div>
+  </fieldset>
+
+  <div class="states">
+    <div class="to_be_done"><strong>To be done</strong>
+      <%if @open_stories%>
+        <% @open_stories.each do |user_story|%>
+          <%= render user_story%>
+        <%end%>
+      <%end%>
+
+    </div>
+    <div class="in_progress"><strong>In progress</strong>
+      <%if @in_progress_stories%>
+        <% @in_progress_stories.each do |user_story|%>
+          <%= render user_story%>
+        <%end%>
+      <%end%>
+    </div>
+    <div class="to_be_verified"><strong>To be verified</strong>
+      <%if @to_be_verivied_stories%>
+        <% @to_be_verivied_stories.each do |user_story|%>
+          <%= render user_story%>
+        <%end%>
+      <%end%>
+
+    </div>
+    <div class="completed"><strong>Completed</strong>
+      <%if @completed_stories%>
+        <% @completed_stories.each do |user_story|%>        
+          <%= render user_story%>       
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+  <p class="clear" id="clear"></p><br>
+  <fieldset >
+  <legend><strong>Comments</strong></legend>
+    <div class="comment">
+      <%= render :partial => @project.project_comments %>
+    </div>
+    <div>
+      <%= form_for [@project, ProjectComment.new], remote: true do |f|%>
+        <p>
+          <%= f.text_area :comment, :class => "comment-field" %>
+        </p>  
+        <p><%= f.submit "Add comment", :class=>'btn btn-info', :id=>'clear-text-area'%></p>
+      <%end%>
+    </div>
+  </fieldset>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $('.chosen-select').change(function() {
+        $(this).closest('form').trigger('submit');
+    });
+  });
+
+  $(function(){
+      $('#edit-link a').css('width', '200');
+
+  });
+
+
+</script>
+ 

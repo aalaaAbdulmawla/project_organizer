@@ -1,0 +1,11 @@
+<fieldset>
+  <%= f.label :name, "User story name" %><br />
+  <%= f.text_field :name %><br />
+  <p><%= f.label :description, "Description" %><p>
+  <%= f.text_area :description %><br />
+  <h3>Add task</h3>
+  <%= f.fields_for :tasks do |builder| %>
+    <%= render 'task_fields.html', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add task", f, :tasks %>
+</fieldset>

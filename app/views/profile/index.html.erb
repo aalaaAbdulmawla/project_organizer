@@ -1,0 +1,45 @@
+<div class="profile-body">
+	<% if user_signed_in?%>
+	    <div id="new-project">
+			<%= link_to 'Create new project', new_project_path, :class=>'btn btn-info btn-lg btn-blo' %>
+		</div>
+		<div id="search-form">
+			<%= form_tag url_for({:controller => 'profile', :action => 'index'}), method: :get  do %>	  
+		  	  <%= text_field_tag :search  %>
+		  	  <%= submit_tag "Search your projects", :class => 'btn btn-info' %>
+			<% end %>
+		</div>
+
+		
+		<table>
+			<thead>
+				<tr>
+					<th colspan="6">Your projects</th>
+				</tr>
+			</thead>
+			<%if @projects %>
+				<%@projects.each do |project|%>		
+				  <%= render project %>
+				<%end%>
+			<%end%>
+		</table>
+		<div id="paginate">
+			<%= will_paginate @projects %>
+		</div>
+	<%end%>
+</div>
+
+<style type="text/css">
+	
+</style>
+
+<script type="text/javascript">
+$(function(){
+	$('input[type=text]').css('height', '35');
+	$('input[type=text]').css('width', '300');
+	$('#new-project a').css('width', '470');
+
+});
+
+</script>
+

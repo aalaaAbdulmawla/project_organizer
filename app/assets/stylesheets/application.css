@@ -1,0 +1,180 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require token-input-facebook
+ *= require chosen
+
+
+ *= require_self
+ */
+*{
+  margin: 2px;
+}
+  #comment{
+    border: 1.5px solid black;
+    position: relative;
+  }
+  #date{
+    font-size: 10px;
+  }
+
+img{
+	height: 50px;
+	width: 50px;
+}
+fieldset{
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+
+.btn-danger{
+  background-color: #F23F81;
+}
+#user_nav{
+  top: 0px;
+  height: 50px;
+  padding-top: 3px;
+  border: 1px solid #E8E6E7;
+  border-radius: 6px;
+  background-color: #E8E6E7;
+}
+
+ul li{
+  list-style: none;
+  float: right;
+}
+
+.clear{
+  clear: both;
+}
+
+
+#profile-pic img{
+  width: 35px;
+  height: 35px;
+}
+#user-name{
+  margin-right: 90px;
+}
+
+a, a:hover{
+  text-decoration: none;
+  
+}
+
+/*header*/
+.navbar, .navbar-default, .navbar-fixed-top, .panel-default > .panel-heading{
+  background-color: #DEDEDE;
+}
+
+
+/*footer */
+
+footer{
+  margin-top: 45px;
+  padding-top: 5px;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-top: 1px solid #616060;
+  color: #999;
+}
+
+footer a{
+  color: #555;
+}
+
+footer a:hover{
+  color: #222;
+}
+
+footer small{
+  float: left;
+}
+
+footer ul{
+  float: right;
+  list-style: none;
+}
+
+footer ul li{
+  float: left;
+  margin-left: 10px;
+}
+
+/*field with errors*/
+
+.field_with_errors input, .field_with_errors textarea{
+  border: 1px solid #FC7E7E;
+}
+
+/*global styles*/
+h2, label, h1, dt, th{
+  color: #616060;
+}
+
+#profile-pic img{
+  width: 20px;
+  height: 20px;
+}
+
+th{
+  font-size: 20px;
+}
+.member-info, .col-stories{
+  margin: 10px;
+  padding: 3px;
+  border-bottom: 1px solid #DEDEE0;
+  
+}
+.member-info:hover, .col-stories:hover{
+  background-color: #EBEBEB
+}
+
+.members{
+  padding: 0;
+}
+
+/*Tasks*/
+.completed-tasks{
+  border-right: 1px solid black;
+}
+
+.form{
+  margin-right: 2px;
+  margin-left: 2px;
+}
+/*panels margin*/
+.row .panel{
+  margin-bottom: 8px;
+  margin-right: 0px;
+  margin-right: 0px;
+
+}
+
+.panel-body{
+  padding: 0;
+}
+
+/*Error exeplanation*/
+
+#error_explanation{
+  border: 1px solid #616060;
+  border-radius: 7px;
+  padding-
+  margin: 0;
+}
+
+#error_explanation ul li{
+  list-style: none;
+}
+

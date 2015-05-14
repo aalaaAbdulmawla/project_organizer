@@ -1,0 +1,43 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <h3>Add user stories</h3>
+  <div class="field">
+   <%= f.fields_for :user_stories do |builder| %>
+    <%= render 'user_story_fields', f: builder %>
+  <% end %>
+  <div id="add_fields">
+    <%= link_to_add_fields "Add user story", f, :user_stories %>
+  </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+ <script>
+        $(document).ready(function (){
+            $(".add_fields").click(function (){
+                    $('html, body').animate({
+                        scrollTop: $(".add_fields").offset().top
+                    }, 'slow');
+            });
+        });
+  </script>

@@ -1,0 +1,51 @@
+#user_story_user_ids{
+	width: 450px;
+}
+.add-description-files{
+  width: 350px;
+  float: left;
+}
+#tasks_part, comments-part{
+  width: 450px;
+  float: left;
+}
+.clear{
+  clear: both;
+}
+
+.options{
+  float: right;
+}
+
+
+select option{
+  clear: both;
+}
+.comment-field, .file-field, .task-field{
+  width: 100%;
+  border-radius: 4px;
+}
+/*.description-files{
+  margin-bottom: 20px;
+}*/
+
+fieldset{
+  margin-top: 7px;
+  padding: 5px;
+}
+
+#user-story-body{
+  margin: 8px;
+}
+ieldset table{
+  top: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+.chosen-container-single .chosen-single span{
+  clear: both;
+}
+
+fieldset legend{
+  margin-bottom: 0;
+}

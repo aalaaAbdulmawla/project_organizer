@@ -1,0 +1,33 @@
+<%= form_for(@description_file) do |f| %>
+  <% if @description_file.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@description_file.errors.count, "error") %> prohibited this description_file from being saved:</h2>
+
+      <ul>
+      <% @description_file.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripion %><br>
+    <%= f.text_area :descripion %>
+  </div>
+  <div class="field">
+    <%= f.label :user_story_id %><br>
+    <%= f.number_field :user_story_id %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :user_story_id %><br>
+    <%= f.text_field :user_story_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

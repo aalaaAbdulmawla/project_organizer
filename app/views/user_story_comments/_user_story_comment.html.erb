@@ -1,0 +1,10 @@
+<div id="comment">
+	<%= div_for (user_story_comment) do %>
+		<div id="image"><%= image_tag(User.find(user_story_comment.creator).avatar_url, :title => current_user.first_name.capitalize, :alt => current_user.first_name.capitalize) %>
+		
+			<span> <%= user_story_comment.comment.capitalize %></span>
+			<p id="date"><%= user_story_comment.created_at.strftime("%d %b. %Y") %></p>
+		</div>
+	<%end%>
+</div>
+

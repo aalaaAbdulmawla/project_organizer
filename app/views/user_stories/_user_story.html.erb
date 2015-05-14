@@ -1,0 +1,35 @@
+<div class="story">
+    <% if current_user.id == user_story.project.creator %>
+      User story name: <%=link_to user_story.name, user_story %>
+      <%= form_for [@project, user_story], remote: true  do |f|%>
+        <div class="field" id='my_select_chzn'>
+          <%= f.label :state %>
+          <%= f.select :state, ['To be done', 'In progress', 'To be verified', 'Completed'], {:selected => user_story.state }, :id =>'select-state', :class => 'chosen-select'%>
+        </div>
+      <%end%>
+      
+    <%elsif (user_story.users.include? current_user)%>
+       User story name: <%=link_to user_story.name, user_story %>
+       <%= form_for [@project, user_story], remote: true  do |f|%>
+        <div class="field" id='my_select_chzn'>
+          <%= f.label :state %>
+          <%= f.select :state, ['To be done', 'In progress', 'To be verified'], {:selected => user_story.state }, :id =>'select-state', :class => 'chosen-select'%>
+        </div>
+        
+      <%end%>
+
+    <%else%>
+      User story name: <%= user_story.name %>
+    <%end%>
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+  $('.chosen-select').chosen();
+  
+})
+
+</script>
+
+

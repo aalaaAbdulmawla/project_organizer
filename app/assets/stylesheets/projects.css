@@ -1,0 +1,62 @@
+*{
+  margin: 2px;
+}
+fieldset{
+  border: 1px;
+}
+.story{
+  width: 300px;
+  border-bottom: 1px solid gray;
+}
+.members{
+  width: 25%;
+}
+.to_be_done, .in_progress, .to_be_verified, .completed{
+  border: 2px solid gray;
+  border-radius: 8px;
+	width: 320px;
+	float: left;
+  margin: 2px;
+	padding: 2px;
+}
+
+
+.comment-field{
+  width: 100%;
+  border-radius: 4px;
+}
+#select-state{
+  width: 200px;
+}
+
+.clear{
+  clear: both;
+}
+
+.to_be_done strong, .in_progress strong, .to_be_verified strong, .completed strong{
+  margin-left: 95px;
+  border-bottom: 1px solid black;
+}
+#project-body{
+  margin: 10px;
+}
+
+fieldset{
+  padding-left: 15px;
+  padding-top: 3px;
+}
+.states{
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+#edit-link{
+  float: right;
+  margin-right: 50px;
+  margin-bottom: 10px;
+}
+
+#members{
+  top: 0;
+  left: 120px;
+}

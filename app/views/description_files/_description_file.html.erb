@@ -1,0 +1,9 @@
+<div id="description-file">
+
+	<%= div_for (description_file) do %>
+		<tr>		
+			<td><%= description_file.descripion.capitalize %></td>
+			<td><%= link_to 'Download file', description_file.source_url, :class=>'btn btn-success' %></td>
+		</tr>
+	<%end%>
+</div>

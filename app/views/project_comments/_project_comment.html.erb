@@ -1,0 +1,8 @@
+<div id="comment">
+	<%= div_for (project_comment) do %>
+		<%=image_tag(User.find(project_comment.creator).avatar_url, :title => User.find(project_comment.creator).first_name.capitalize, :alt => current_user.first_name.capitalize) %>
+
+		<span> <%= project_comment.comment.capitalize %></span>
+			<p id="date"><%= project_comment.created_at.strftime("%d %b. %Y") %></p>
+	<%end%>
+</div>

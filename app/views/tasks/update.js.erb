@@ -1,0 +1,6 @@
+if ($('#edit_task_<%= @task.id%> input[type="checkbox"]').prop('checked')==true){
+	$('#edit_task_<%= @task.id%> .task-description').css('text-decoration', 'line-through');
+}
+else{
+	$('#edit_task_<%= @task.id%> .task-description').css('text-decoration', 'none');
+}

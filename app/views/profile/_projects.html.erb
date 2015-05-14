@@ -1,0 +1,11 @@
+<tr>
+	<td><%= project.title %></td>
+	<% if project.creator == current_user.id %>			
+			<td><%= link_to 'Edit', edit_project_path(project), :class=>'btn btn-success btn-sm' %></td>
+			<td><%= link_to 'View', project, :class=>'btn btn-success btn-sm' %></td>
+			<td>kgjslkfjglskjflkgsjlkg<%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } :class=>'btn btn-success btn-sm'%></td>
+			sjlkfjlak;j;lkfjalkfjlaksjflk;ajslkjfalksjkfajlskjlkfjaslkfjlasjflsjlkfjkljfalksjfalkjsklfjalksjlkfajskljfalk
+	<% else %>
+		<td colspan="3" ><%= link_to 'View', project, :class=>'btn btn-success btn-sm' %></td>
+	<%end%>
+<tr>		

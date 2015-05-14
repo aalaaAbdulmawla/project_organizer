@@ -1,0 +1,29 @@
+<h1>Listing user_story_comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comment</th>
+      <th>Creator</th>
+      <th>User story</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_story_comments.each do |user_story_comment| %>
+      <tr>
+        <td><%= user_story_comment.comment %></td>
+        <td><%= user_story_comment.creator %></td>
+        <td><%= user_story_comment.user_story %></td>
+        <td><%= link_to 'Show', user_story_comment %></td>
+        <td><%= link_to 'Edit', edit_user_story_comment_path(user_story_comment) %></td>
+        <td><%= link_to 'Destroy', user_story_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User story comment', new_user_story_comment_path %>

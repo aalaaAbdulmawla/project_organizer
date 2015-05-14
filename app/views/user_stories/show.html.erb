@@ -1,0 +1,96 @@
+<div id="user-story-body">
+  <fieldset>
+    <legend><h3>User story details</h3></legend>
+    <p>
+      <strong>Name:</strong>
+      <%= @user_story.name.split.map(&:capitalize)*' ' %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @user_story.description.capitalize %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @user_story.state.humanize%>
+    </p>
+    <%if @user_story.users%>
+      <strong>Members</strong><br>
+      <% @user_story.users.each do |user|%>
+        -<%= user.name.split.map(&:capitalize)*' ' %><br>
+      <%end%>
+    <%end%>
+    <div class="options">
+      <% if @user_story.project.creator == current_user.id %>
+        <%= link_to 'Edit', edit_user_story_path(@user_story), :class=>'btn btn-info' %>
+      <%end%>
+
+    </div>  
+  </fieldset >
+
+
+
+  <div id="tasks_part">
+    <fieldset >
+      <legend>Tasks</legend>
+      <div id="tasks">
+        <% @tasks.each do |task| %>      
+              <%= render task %>         
+        <% end %>
+      </div>
+      <fieldset class="add-tasks">
+        <legend>Add tasks</legend>
+        <div>
+          <%= form_for [@user_story, Task.new], remote: true do |f|%>
+            <p>
+              <%= f.text_area :description, :class=>"task-field"%>
+            </p>  <%= f.submit "Add task", :class=>'btn btn-info'%>
+
+          <%end%>
+        </div>
+      </fieldset>
+    </fieldset>
+  </div>
+
+
+  <fieldset class="add-description-files">
+    <legend>Description files</legend>
+    <table>
+      <!-- <div class="description-files"> -->       
+      <%= render :partial => @user_story.description_files %>      
+      <!-- </div> -->
+    </table>
+    <div>
+      <%= form_for [@user_story, DescriptionFile.new] do |f|%>
+          <fieldset>
+            <legend>Add files</legend>
+            <%= f.label :name, "Add description" %>
+            <%= f.text_area :descripion, :class=>"file-field" %>
+          <p>
+            <%= f.file_field :source %>
+          </p>  
+          <p><%= f.submit "Add file", :class=>'btn btn-info'%></p>
+        </fieldset>
+      <%end%>
+    </div>
+  </fieldset>
+
+
+  <fieldset class="comments-part">
+    <legend>Comments</legend>
+    <div class="comment">
+      <%= render :partial => @user_story.user_story_comments %>
+    </div>
+    <div>
+      <%= form_for [@user_story, UserStoryComment.new], remote: true do |f|%>
+        <p>
+          <%= f.text_area :comment, :class=>"comment-field" %>
+        </p>  
+        <p><%= f.submit "Add comment", :class=>'btn btn-info'%></p>
+      <%end%>
+    </div>
+  </fieldset>
+</div>
+
+<p class="clear"></p>

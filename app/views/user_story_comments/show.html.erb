@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @user_story_comment.comment %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @user_story_comment.creator %>
+</p>
+
+<p>
+  <strong>User story:</strong>
+  <%= @user_story_comment.user_story %>
+</p>
+
+<%= link_to 'Edit', edit_user_story_comment_path(@user_story_comment) %> |
+<%= link_to 'Back', user_story_comments_path %>

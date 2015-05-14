@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripion: MyText
+  user_story_id: 1
+  source: MyString
+  user_story_id: 
+
+two:
+  descripion: MyText
+  user_story_id: 1
+  source: MyString
+  user_story_id: 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trello</title>
+  <%= stylesheet_link_tag    'application',media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="user_nav">
+		<% if user_signed_in? %>			
+			<ul>
+				<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class=> 'btn btn-danger btn-sm' %></li>
+				<li id="user-name"><%= link_to current_user.first_name.capitalize, :controller => 'profile', :action => 'index', :id=>'btn btn-default active'%></li>
+				<li id="profile-pic"><%= link_to image_tag(current_user.avatar_url, :title => current_user.first_name.capitalize, :alt => current_user.first_name.capitalize), url_for({:controller => 'profile', :action => 'index'}) %></li>
+			</ul>		
+		<% else %>
+			<%= link_to "Sign up", new_user_registration_path, :class=>'btn btn-success' %> or <%= link_to "sign in", new_user_session_path, :class=>'btn btn-info' %>
+		<% end %>
+	</div>
+	<% flash.each do |name, msg|%>
+		<div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %> alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		  <%= msg %>
+		</div>
+	<% end %>
+	<p class="clear"></p>
+
+<%= yield %>
+
+</body>
+</html>

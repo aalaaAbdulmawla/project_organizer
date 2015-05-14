@@ -1,0 +1,31 @@
+<h1>Listing description_files</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripion</th>
+      <th>User story</th>
+      <th>Source</th>
+      <th>User story</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @description_files.each do |description_file| %>
+      <tr>
+        <td><%= description_file.descripion %></td>
+        <td><%= description_file.user_story_id %></td>
+        <td><%= description_file.source %></td>
+        <td><%= description_file.user_story %></td>
+        <td><%= link_to 'Show', description_file %></td>
+        <td><%= link_to 'Edit', edit_description_file_path(description_file) %></td>
+        <td><%= link_to 'Destroy', description_file, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Description file', new_description_file_path %>

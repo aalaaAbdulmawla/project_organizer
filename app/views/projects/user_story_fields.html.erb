@@ -1,0 +1,10 @@
+<fieldset>
+  <%= f.label :name, "User story name" %><br />
+  <%= f.text_field :name %><br />
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove user story" %>
+  <%= f.fields_for :tasks do |builder| %>
+    <%= render 'task_fields.html', f: builder %>
+  <% end %>
+
+</fieldset>

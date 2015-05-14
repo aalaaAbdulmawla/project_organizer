@@ -1,0 +1,32 @@
+<%= form_for [@user_story, task], remote: true, :html=> { class: 'update-form' } do |f|%>
+    <%= f.check_box :state %>
+	<% if task.state == "1"%>
+		<p class="task-description marked"><%= task.description.capitalize %></p>		
+	<%else%>			
+		<p class="task-description"><%= task.description.capitalize %></p>	
+	<%end%>
+
+<% end %>
+
+
+
+
+<style type="text/css">
+	.task-description{
+		display: inline;
+	}
+	.marked{
+		text-decoration: line-through;
+	}
+</style>
+
+<script type="text/javascript">
+
+	$(function(){
+		$('.update-form input[type="checkbox"]').click(function(){
+			$(this).parent('form').submit();
+		});
+   });
+
+
+</script>

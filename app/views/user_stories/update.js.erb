@@ -1,0 +1,10 @@
+$("#edit_user_story_<%= @user_story.id%>").closest('div').remove();
+$(".<%=@user_story.state.parameterize.underscore.to_sym%>").append("<%= j render(@user_story) %>");
+$('.chosen-select').change(function() {
+    $(this).closest('form').trigger('submit');
+ });
+$(function(){
+	$('.chosen-select').chosen();
+	
+})
+
