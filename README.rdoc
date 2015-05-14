@@ -3,11 +3,18 @@ user stories and tasks.
 
 The system  helps users managing their projects.
 ● As a user I can create new projects.
+
 ● As a project creator I can invite other users to my project, I can define user­stories and 
 assign members to the story.
+
 ● Project creator and members of a story can add tasks to the story.
+
 ● Project creator and members of a story can change the state of the story and its tasks.
+
 ● User­Stories are in Open, in­process, to­be­verified or Completed state.
+
 ● Tasks state is either done or not.
+
 ● Only project creator can make the User­Story Completed.
+
 ● Members can comment on projects and user­stories that they are involved in.
